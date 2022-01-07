@@ -13,6 +13,7 @@
 		48F79A782788836700EFB06B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48F79A762788836700EFB06B /* Main.storyboard */; };
 		48F79A7A2788836C00EFB06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48F79A792788836C00EFB06B /* Assets.xcassets */; };
 		48F79A7D2788836C00EFB06B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48F79A7B2788836C00EFB06B /* LaunchScreen.storyboard */; };
+		48F79A862788856B00EFB06B /* ExpressionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F79A852788856B00EFB06B /* ExpressionUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		48F79A792788836C00EFB06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48F79A7C2788836C00EFB06B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48F79A7E2788836C00EFB06B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F79A852788856B00EFB06B /* ExpressionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		48F79A6F2788836700EFB06B /* ExpressionCalculate */ = {
 			isa = PBXGroup;
 			children = (
+				48F79A842788855E00EFB06B /* Util */,
 				48F79A702788836700EFB06B /* AppDelegate.swift */,
 				48F79A722788836700EFB06B /* SceneDelegate.swift */,
 				48F79A742788836700EFB06B /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				48F79A7E2788836C00EFB06B /* Info.plist */,
 			);
 			path = ExpressionCalculate;
+			sourceTree = "<group>";
+		};
+		48F79A842788855E00EFB06B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				48F79A852788856B00EFB06B /* ExpressionUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48F79A752788836700EFB06B /* ViewController.swift in Sources */,
+				48F79A862788856B00EFB06B /* ExpressionUtil.swift in Sources */,
 				48F79A712788836700EFB06B /* AppDelegate.swift in Sources */,
 				48F79A732788836700EFB06B /* SceneDelegate.swift in Sources */,
 			);
@@ -291,6 +303,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpressionCalculate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "后缀表达式计算";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,6 +331,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpressionCalculate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "后缀表达式计算";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
