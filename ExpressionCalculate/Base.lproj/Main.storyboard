@@ -55,13 +55,23 @@
                                     <action selector="generateRandomExpression:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gh9-EC-gg1"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKg-Cm-PA1">
+                                <rect key="frame" x="32" y="416" width="350" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qKg-Cm-PA1" secondAttribute="bottom" constant="32" id="2X3-rz-Ntb"/>
                             <constraint firstItem="pbq-H4-0f0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="168" id="3iq-Nh-mNC"/>
                             <constraint firstItem="HZl-UP-fBD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="EMw-5H-T1G"/>
                             <constraint firstItem="0DM-J6-h66" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GMl-Di-GzS"/>
+                            <constraint firstItem="qKg-Cm-PA1" firstAttribute="top" secondItem="HZl-UP-fBD" secondAttribute="bottom" constant="32" id="M1Q-jd-s1c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qKg-Cm-PA1" secondAttribute="trailing" constant="32" id="N53-GD-kFF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pbq-H4-0f0" secondAttribute="trailing" constant="32" id="Otj-0E-yh5"/>
                             <constraint firstItem="GOe-gc-AHg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QZP-wk-vMV"/>
                             <constraint firstItem="pbq-H4-0f0" firstAttribute="top" secondItem="0DM-J6-h66" secondAttribute="bottom" constant="32" id="RRK-na-GXb"/>
@@ -70,9 +80,11 @@
                             <constraint firstItem="HZl-UP-fBD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m6G-t4-9TN"/>
                             <constraint firstItem="HZl-UP-fBD" firstAttribute="top" secondItem="GOe-gc-AHg" secondAttribute="bottom" constant="32" id="nbg-vZ-Po6"/>
                             <constraint firstItem="pbq-H4-0f0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="s8a-3J-OxG"/>
+                            <constraint firstItem="qKg-Cm-PA1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="yDp-F1-d9a"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calculatorDetailTV" destination="qKg-Cm-PA1" id="N4V-Wy-cA3"/>
                         <outlet property="inputTF" destination="pbq-H4-0f0" id="aVy-fE-FcL"/>
                         <outlet property="resultDisplayLabel" destination="HZl-UP-fBD" id="yOA-Dz-sNG"/>
                     </connections>
@@ -83,6 +95,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

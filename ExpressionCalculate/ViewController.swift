@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     // MARK: - properties
     @IBOutlet weak var inputTF: UITextField!
     @IBOutlet weak var resultDisplayLabel: UILabel!
+    @IBOutlet weak var calculatorDetailTV: UITextView! // 计算步骤
     
     // MARK: - view life cycle
     override func viewDidLoad() {
@@ -43,12 +44,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculate(_ sender: Any) {
-        if let expressionStr = inputTF.text {
-            let expressionList = ExpressionUtil.converExpressionToSuffixExpression(expressionStr)
-            print(expressionList)
-            let result = ExpressionUtil.calculatorExpressionList(expressionList)
-            let displyStr = expressionStr + " = " + String(format: "%@", NSNumber(value: result))
+        if let expressionStr = inputTF.text, expressionStr.count > 0 {
+            let expressionR: (expressionList: [String], detailInfoStr: String) = ExpressionUtil.converExpressionToSuffixExpression(expressionStr)
+            print(expressionR.expressionList)
+            
+            
+            let str = expressionR.expressionList.joined(separator: "  ") + "\n\n\n\n"
+            let calculatorR: (value: Double, detailInfoStr: String) = ExpressionUtil.calculatorExpressionList(expressionR.expressionList, detailStr: str)
+            let displyStr = expressionStr + " = " + String(format: "%@", NSNumber(value: calculatorR.value))
             resultDisplayLabel.text = displyStr
+            
+            let detailStr = "转后缀表达式过程：\n\n" + expressionR.detailInfoStr + "计算后缀表达式过程：\n\n" + calculatorR.detailInfoStr
+            calculatorDetailTV.text = detailStr
         }
     }
     

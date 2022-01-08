@@ -9,9 +9,10 @@ import Foundation
 
 class ExpressionUtil {
     // 只考虑0-9的数字，即单个数字的情况
-    static func converExpressionToSuffixExpression(_ expressionStr: String) -> [String] {
+    static func converExpressionToSuffixExpression(_ expressionStr: String) -> ([String], String) {
         var suffixExpressionList: [String] = []
         var operatorExpressionList: [String] = []
+        var outoutDetailInfoStr: String = "" // 为显示输出添加，如果不需要可以删除相关代码
         
         for item in expressionStr {
             let itemStr = String(item)
@@ -23,6 +24,9 @@ class ExpressionUtil {
             print(operatorExpressionList)
             print("\n")
             
+            outoutDetailInfoStr += "数  字： " + suffixExpressionList.joined(separator: "  ") + "\n\n"
+            outoutDetailInfoStr += "符  号： " + operatorExpressionList.joined(separator: "  ") + "\n\n\n\n"
+
             if item.isNumber == true {
                 // 是数字则放入表达式中
                 suffixExpressionList.append(itemStr)
@@ -68,7 +72,14 @@ class ExpressionUtil {
             } while (operatorExpressionList.count > 0)
         }
         
-        return suffixExpressionList
+        print(suffixExpressionList)
+        print(operatorExpressionList)
+        print("\n")
+        
+        outoutDetailInfoStr += "数  字： " + suffixExpressionList.joined(separator: "  ") + "\n\n"
+        outoutDetailInfoStr += "符  号： " + operatorExpressionList.joined(separator: "  ") + "\n\n\n\n"
+        
+        return (suffixExpressionList, outoutDetailInfoStr)
     }
 
     // 处理符号数组到表达式数组逻辑
@@ -121,10 +132,11 @@ class ExpressionUtil {
     }
 
     // 后缀表达式的计算
-    static func calculatorExpressionList(_ expressionList: [String]) -> Double {
+    static func calculatorExpressionList(_ expressionList: [String], detailStr: String) -> (Double, String) {
         
         if expressionList.count == 1 {
-            return (expressionList.first as NSString?)?.doubleValue ?? 0.0
+            let resultValue = (expressionList.first as NSString?)?.doubleValue ?? 0.0
+            return (resultValue, detailStr)
         }
         
         // 计算逻辑如下：
@@ -133,6 +145,7 @@ class ExpressionUtil {
         // 重复遍历数组，按照上面逻辑计算，直到数组中只有一个元素即结果为止
         
         var targetList: [String] = expressionList
+        var calculateDetailStr = detailStr // 为显示输出添加，如果不需要可以删除相关代码
         
         for index in 0..<expressionList.count {
             let item = expressionList[index]
@@ -147,7 +160,8 @@ class ExpressionUtil {
             }
         }
         print(targetList)
-        return ExpressionUtil.calculatorExpressionList(targetList)
+        calculateDetailStr += targetList.joined(separator: "  ") + "\n\n\n\n"
+        return ExpressionUtil.calculatorExpressionList(targetList, detailStr: calculateDetailStr)
     }
 
     // 计算
@@ -172,7 +186,7 @@ class ExpressionUtil {
             break
         }
         
-        return String(format: "%f", result)
+        return String(format: "%@", NSNumber(value: result))
     }
 
     // 是否是运算符
