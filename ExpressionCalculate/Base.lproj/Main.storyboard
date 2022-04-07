@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,6 +62,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fQ1-YY-Aeg">
+                                <rect key="frame" x="102.5" y="69" width="209" height="32"/>
+                                <segments>
+                                    <segment title="后缀表达式"/>
+                                    <segment title="NSExpression"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,6 +80,7 @@
                             <constraint firstItem="qKg-Cm-PA1" firstAttribute="top" secondItem="HZl-UP-fBD" secondAttribute="bottom" constant="32" id="M1Q-jd-s1c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qKg-Cm-PA1" secondAttribute="trailing" constant="32" id="N53-GD-kFF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pbq-H4-0f0" secondAttribute="trailing" constant="32" id="Otj-0E-yh5"/>
+                            <constraint firstItem="fQ1-YY-Aeg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="PCg-wq-Zec"/>
                             <constraint firstItem="GOe-gc-AHg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QZP-wk-vMV"/>
                             <constraint firstItem="pbq-H4-0f0" firstAttribute="top" secondItem="0DM-J6-h66" secondAttribute="bottom" constant="32" id="RRK-na-GXb"/>
                             <constraint firstItem="GOe-gc-AHg" firstAttribute="top" secondItem="pbq-H4-0f0" secondAttribute="bottom" constant="32" id="RXK-J9-HZg"/>
@@ -80,6 +88,7 @@
                             <constraint firstItem="HZl-UP-fBD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m6G-t4-9TN"/>
                             <constraint firstItem="HZl-UP-fBD" firstAttribute="top" secondItem="GOe-gc-AHg" secondAttribute="bottom" constant="32" id="nbg-vZ-Po6"/>
                             <constraint firstItem="pbq-H4-0f0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="s8a-3J-OxG"/>
+                            <constraint firstItem="fQ1-YY-Aeg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xXR-ic-j3F"/>
                             <constraint firstItem="qKg-Cm-PA1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="yDp-F1-d9a"/>
                         </constraints>
                     </view>
@@ -87,6 +96,7 @@
                         <outlet property="calculatorDetailTV" destination="qKg-Cm-PA1" id="N4V-Wy-cA3"/>
                         <outlet property="inputTF" destination="pbq-H4-0f0" id="aVy-fE-FcL"/>
                         <outlet property="resultDisplayLabel" destination="HZl-UP-fBD" id="yOA-Dz-sNG"/>
+                        <outlet property="typeSegment" destination="fQ1-YY-Aeg" id="ejo-tv-JmB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

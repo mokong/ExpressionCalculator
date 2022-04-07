@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: - properties
+    @IBOutlet weak var typeSegment: UISegmentedControl!
     @IBOutlet weak var inputTF: UITextField!
     @IBOutlet weak var resultDisplayLabel: UILabel!
     @IBOutlet weak var calculatorDetailTV: UITextView! // 计算步骤
@@ -44,6 +45,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculate(_ sender: Any) {
+        if typeSegment.selectedSegmentIndex == 0 {
+            suffixExpressionCalculate()
+        }
+        else {
+            nsexpressionCalculate()
+        }
+    }
+    
+    // MARK: - other
+    
+    fileprivate func suffixExpressionCalculate() {
         if let expressionStr = inputTF.text, expressionStr.count > 0 {
             let expressionR: (expressionList: [String], detailInfoStr: String) = ExpressionUtil.converExpressionToSuffixExpression(expressionStr)
             print(expressionR.expressionList)
@@ -59,7 +71,15 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: - other
+    fileprivate func nsexpressionCalculate() {
+        if let expressionStr = inputTF.text, expressionStr.count > 0 {
+            let formatExpressionStr = expressionStr.replacingOccurrences(of: " ", with: "")
+            let expression = NSExpression(format: formatExpressionStr)
+            if let result = expression.expressionValue(with: nil, context: nil) as? NSNumber {
+                print(result)
+            }
+        }
+    }
     
 
 

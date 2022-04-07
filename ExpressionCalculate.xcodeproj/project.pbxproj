@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48C3F49727FED4D60083E377 /* String_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F49627FED4D60083E377 /* String_Extensions.swift */; };
 		48F79A712788836700EFB06B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F79A702788836700EFB06B /* AppDelegate.swift */; };
 		48F79A732788836700EFB06B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F79A722788836700EFB06B /* SceneDelegate.swift */; };
 		48F79A752788836700EFB06B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F79A742788836700EFB06B /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48C3F49627FED4D60083E377 /* String_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extensions.swift; sourceTree = "<group>"; };
 		48F79A6D2788836700EFB06B /* ExpressionCalculate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressionCalculate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48F79A702788836700EFB06B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48F79A722788836700EFB06B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				48F79A852788856B00EFB06B /* ExpressionUtil.swift */,
+				48C3F49627FED4D60083E377 /* String_Extensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48C3F49727FED4D60083E377 /* String_Extensions.swift in Sources */,
 				48F79A752788836700EFB06B /* ViewController.swift in Sources */,
 				48F79A862788856B00EFB06B /* ExpressionUtil.swift in Sources */,
 				48F79A712788836700EFB06B /* AppDelegate.swift in Sources */,
