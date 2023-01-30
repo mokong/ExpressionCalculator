@@ -14,6 +14,7 @@ class ExpressionUtil {
         var operatorExpressionList: [String] = []
         var outoutDetailInfoStr: String = "" // 为显示输出添加，如果不需要可以删除相关代码
         
+        var tempNumStr: String = ""
         for item in expressionStr {
             let itemStr = String(item)
             if itemStr == " " {
@@ -29,9 +30,13 @@ class ExpressionUtil {
 
             if item.isNumber == true {
                 // 是数字则放入表达式中
-                suffixExpressionList.append(itemStr)
+                tempNumStr += itemStr
             }
             else {
+                if tempNumStr.count > 0 {
+                    suffixExpressionList.append(tempNumStr)
+                    tempNumStr = ""
+                }
                 if operatorExpressionList.count == 0 {
                     operatorExpressionList.append(itemStr)
                 }
@@ -39,7 +44,7 @@ class ExpressionUtil {
                     // 是运算符，包含"+ - * / ( )"
                     if itemStr == ")" {
                         // 遇到")"，则把数组中的运算符弹出，放入到表达式末尾，直到遇到"("停止
-                        let temp: (l1: [String], l2: [String]) = ExpressionUtil.handleAppendExpressionList(operatorExpressionList, suffixList: suffixExpressionList, isRightBracket: true)
+                        let temp: (l1: [String], l2: [String]) = ExpressionUtil.handleAppendExpressionList(operatorExpressionList, suffixList: suffixExpressionList, operatorStr: itemStr)
                         operatorExpressionList = temp.l1
                         suffixExpressionList = temp.l2
                     }
@@ -54,7 +59,7 @@ class ExpressionUtil {
                             operatorExpressionList.append(itemStr)
                         }
                         else {
-                            let temp: (l1: [String], l2: [String]) = ExpressionUtil.handleAppendExpressionList(operatorExpressionList, suffixList: suffixExpressionList, isRightBracket: false)
+                            let temp: (l1: [String], l2: [String]) = ExpressionUtil.handleAppendExpressionList(operatorExpressionList, suffixList: suffixExpressionList, operatorStr: itemStr)
                             operatorExpressionList = temp.l1
                             suffixExpressionList = temp.l2
                             operatorExpressionList.append(itemStr)
@@ -62,6 +67,10 @@ class ExpressionUtil {
                     }
                 }
             }
+        }
+        if tempNumStr.count > 0 {
+            suffixExpressionList.append(tempNumStr)
+            tempNumStr = ""
         }
         
         if operatorExpressionList.count > 0 {
@@ -83,19 +92,24 @@ class ExpressionUtil {
     }
 
     // 处理符号数组到表达式数组逻辑
-    static func handleAppendExpressionList(_ operatorList: [String], suffixList: [String], isRightBracket: Bool) -> ([String], [String]) {
+    static func handleAppendExpressionList(_ operatorList: [String], suffixList: [String], operatorStr: String) -> ([String], [String]) {
         var operatorExpressionList = operatorList
         var suffixExpressionList = suffixList
         var lastStr = operatorExpressionList.last
         repeat {
-            let tempLastStr = operatorExpressionList.popLast()
-            if tempLastStr != nil {
-                lastStr = tempLastStr!
+            if let tempLastStr = operatorExpressionList.popLast() {
+                lastStr = tempLastStr
+                let isItemPriorityHigh = ExpressionUtil.isFirstOperatorPriorityHigh(first: operatorStr, second: tempLastStr)
+                if isItemPriorityHigh {
+                    operatorExpressionList.append(tempLastStr)
+                    break
+                }
+
                 if lastStr != "(" {
-                    suffixExpressionList.append(tempLastStr!)
+                    suffixExpressionList.append(tempLastStr)
                 }
                 else {
-                    if isRightBracket != true { // 只有右括号能消除左括号
+                    if operatorStr != ")" { // 只有右括号能消除左括号
                         operatorExpressionList.append("(")
                     }
                 }
