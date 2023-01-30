@@ -8,7 +8,7 @@
 import Foundation
 
 class ExpressionUtil {
-    // 只考虑0-9的数字，即单个数字的情况
+    // 更新: 支持大于 10 的数字的计算
     static func converExpressionToSuffixExpression(_ expressionStr: String) -> ([String], String) {
         var suffixExpressionList: [String] = []
         var operatorExpressionList: [String] = []
