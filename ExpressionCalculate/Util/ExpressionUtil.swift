@@ -2,7 +2,7 @@
 //  ExpressionUtil.swift
 //  ExpressionCalculate
 //
-//  Created by Horizon on 7/1/2022.
+//  Created by MorganWang on 7/1/2022.
 //
 
 import Foundation

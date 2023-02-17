@@ -2,7 +2,7 @@
 //  String_Extensions.swift
 //  ExpressionCalculate
 //
-//  Created by Horizon on 7/4/2022.
+//  Created by MorganWang on 7/4/2022.
 //
 
 import Foundation
